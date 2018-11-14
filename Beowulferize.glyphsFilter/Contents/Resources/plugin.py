@@ -56,7 +56,7 @@ class Beowulferize(FilterWithDialog):
 			'en': u'Shake',
 			'de': u'Schütteln',
 			'fr': u'Secouer',
-			'es': u'Sacudir',
+			'es': u'Agitar',
 		})
 		
 		# Load dialog from .nib (without .extension)
