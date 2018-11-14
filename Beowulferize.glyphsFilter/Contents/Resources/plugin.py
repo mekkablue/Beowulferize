@@ -48,6 +48,7 @@ class Beowulferize(FilterWithDialog):
 			'en': u'Beowulferize',
 			'de': u'Beowulferisieren',
 			'fr': u'Beowulfeur',
+			'es': u'Beowulferisador',
 		})
 		
 		# Word on Run Button (default: Apply)
@@ -55,6 +56,7 @@ class Beowulferize(FilterWithDialog):
 			'en': u'Shake',
 			'de': u'Schütteln',
 			'fr': u'Secouer',
+			'es': u'Sacudir',
 		})
 		
 		# Load dialog from .nib (without .extension)
