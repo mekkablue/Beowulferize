@@ -47,12 +47,14 @@ class Beowulferize(FilterWithDialog):
 		self.menuName = Glyphs.localize({
 			'en': u'Beowulferize',
 			'de': u'Beowulferisieren',
+			'fr': u'Beowulfeur',
 		})
 		
 		# Word on Run Button (default: Apply)
 		self.actionButtonLabel = Glyphs.localize({
 			'en': u'Shake',
 			'de': u'Schütteln',
+			'fr': u'Secouer',
 		})
 		
 		# Load dialog from .nib (without .extension)
