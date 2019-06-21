@@ -135,9 +135,9 @@ class Beowulferize(FilterWithDialog):
 	def filter(self, thisLayer, inEditView, customParameters):
 		
 		# Called on font export, get value from customParameters:
-		if customParameters.has_key('shake'):
+		if 'shake' in customParameters:
 			shake = abs(float(customParameters['shake']))
-			if customParameters.has_key('thresholdLength'):
+			if 'thresholdLength' in customParameters:
 				shouldAddPoints = True
 				thresholdLength = float(customParameters['thresholdLength'])
 			else:
