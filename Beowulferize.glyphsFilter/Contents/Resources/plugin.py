@@ -68,15 +68,15 @@ class Beowulferize(FilterWithDialog):
 		# Set default value
 		Glyphs.registerDefault('com.mekkablue.beowulferize.shake', 15.0)
 		if Glyphs.defaults['com.mekkablue.beowulferize.shake'] == "GlyphsToolHand":
-			Glyphs.defaults['com.mekkablue.beowulferize.shake'] = 15.0
+			Glyphs.defaults['com.mekkablue.beowulferize.shake'] = None
 			
 		Glyphs.registerDefault('com.mekkablue.beowulferize.thresholdLength', 100.0)
 		if Glyphs.defaults['com.mekkablue.beowulferize.thresholdLength'] == "GlyphsToolHand":
-			Glyphs.defaults['com.mekkablue.beowulferize.thresholdLength'] = 100.0
+			Glyphs.defaults['com.mekkablue.beowulferize.thresholdLength'] = None
 			
 		Glyphs.registerDefault('com.mekkablue.beowulferize.shouldAddPoints', True)
 		if Glyphs.defaults['com.mekkablue.beowulferize.shouldAddPoints'] == "GlyphsToolHand":
-			Glyphs.defaults['com.mekkablue.beowulferize.shouldAddPoints'] = True
+			Glyphs.defaults['com.mekkablue.beowulferize.shouldAddPoints'] = None
 		
 		# Set value of text field
 		self.maxShakeField.setStringValue_(Glyphs.defaults['com.mekkablue.beowulferize.shake'])
