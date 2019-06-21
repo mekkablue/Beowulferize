@@ -14,6 +14,8 @@
 #
 ###########################################################################################################
 
+from __future__ import print_function
+
 import objc, random
 from GlyphsApp import *
 from GlyphsApp.plugins import *
@@ -28,7 +30,7 @@ def approxLengthOfSegment(segment):
 		cont_net = distance(p0,p1) + distance(p1,p2) + distance(p2,p3)
 		return (cont_net + chord) * 0.5 * 0.996767352316
 	else:
-		print "Segment has unexpected length:\n" + segment
+		print("Segment has unexpected length:\n" + segment)
 	
 
 class Beowulferize(FilterWithDialog):
@@ -104,6 +106,7 @@ class Beowulferize(FilterWithDialog):
 		Glyphs.defaults['com.mekkablue.beowulferize.thresholdLength'] = sender.floatValue()
 		self.update()
 	
+	@objc.python_method
 	def addPointsOnPaths(self, thisLayer, thresholdLength=0.0):
 		for thisPath in thisLayer.paths:
 			pathTimesForNodeInsertion = []
@@ -132,6 +135,7 @@ class Beowulferize(FilterWithDialog):
 				thisPath.insertNodeWithPathTime_(pathTime)
 		
 	# Actual filter
+	@objc.python_method
 	def filter(self, thisLayer, inEditView, customParameters):
 		
 		# Called on font export, get value from customParameters:
