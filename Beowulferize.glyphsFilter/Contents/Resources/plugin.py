@@ -22,12 +22,12 @@ from GlyphsApp.plugins import *
 
 def approxLengthOfSegment(segment):
 	if len(segment) == 2:
-		p0,p1 = [NSPoint(p.x,p.y) for p in segment]
-		return ( (p1.x-p0.x)**2 + (p1.y-p0.y)**2 )**0.5
+		p0,p1 = [NSPoint(p.x, p.y) for p in segment]
+		return ((p1.x - p0.x) ** 2 + (p1.y - p0.y)**2) ** 0.5
 	elif len(segment) == 4:
-		p0,p1,p2,p3 = [NSPoint(p.x,p.y) for p in segment]
-		chord = distance(p0,p3)
-		cont_net = distance(p0,p1) + distance(p1,p2) + distance(p2,p3)
+		p0, p1, p2, p3 = [NSPoint(p.x, p.y) for p in segment]
+		chord = distance(p0, p3)
+		cont_net = distance(p0, p1) + distance(p1, p2) + distance(p2, p3)
 		return (cont_net + chord) * 0.5 * 0.996767352316
 	else:
 		print("Segment has unexpected length:\n" + segment)
@@ -91,18 +91,18 @@ class Beowulferize(FilterWithDialog):
 		
 	# Actions triggered by UI
 	@objc.IBAction
-	def setShake_( self, sender ):
+	def setShake_(self, sender):
 		Glyphs.defaults['com.mekkablue.beowulferize.shake'] = sender.floatValue()
 		self.update()
 	
 	@objc.IBAction
-	def setShouldAddPoints_( self, sender ):
+	def setShouldAddPoints_(self, sender):
 		Glyphs.defaults['com.mekkablue.beowulferize.shouldAddPoints'] = sender.intValue()
 		self.thresholdLengthField.setEnabled_(Glyphs.defaults['com.mekkablue.beowulferize.shouldAddPoints'])
 		self.update()
 	
 	@objc.IBAction
-	def setThresholdLength_( self, sender ):
+	def setThresholdLength_(self, sender):
 		Glyphs.defaults['com.mekkablue.beowulferize.thresholdLength'] = sender.floatValue()
 		self.update()
 	
@@ -128,7 +128,7 @@ class Beowulferize(FilterWithDialog):
 						
 					# collect path time for node insertion if segment is long enough:
 					if approxLengthOfSegment(segment) > thresholdLength:
-						pathTimesForNodeInsertion.append(i+0.5)
+						pathTimesForNodeInsertion.append(i + 0.5)
 			
 			# step backwards through collected path times and insert nodes:
 			for pathTime in reversed(sorted(pathTimesForNodeInsertion)):
@@ -155,17 +155,17 @@ class Beowulferize(FilterWithDialog):
 		
 		# insert points if user asks for it:
 		if shouldAddPoints:
-			self.addPointsOnPaths( thisLayer, thresholdLength=thresholdLength )
+			self.addPointsOnPaths(thisLayer, thresholdLength=thresholdLength)
 		
 		# shake nodes:
 		for thisPath in thisLayer.paths:
 			for thisNode in thisPath.nodes:
-				thisNode.x +=  ( -shake + 2*shake*random.random() )
-				thisNode.y +=  ( -shake + 2*shake*random.random() )
+				thisNode.x +=  (-shake + 2 * shake * random.random())
+				thisNode.y +=  (-shake + 2 * shake * random.random())
 			thisPath.checkConnections()
 		
 	
-	def generateCustomParameter( self ):
+	def generateCustomParameter(self):
 		if Glyphs.defaults['com.mekkablue.beowulferize.shouldAddPoints']:
 			return "%s; shake:%s; thresholdLength:%s;" % (
 				self.__class__.__name__,
