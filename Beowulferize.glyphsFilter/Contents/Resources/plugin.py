@@ -16,10 +16,12 @@
 
 from __future__ import print_function
 
-import objc, random
+import objc
+from random import random
 from GlyphsApp import *
 from GlyphsApp.plugins import *
 
+@objc.python_method
 def approxLengthOfSegment(segment):
 	if len(segment) == 2:
 		p0,p1 = [NSPoint(p.x, p.y) for p in segment]
@@ -34,17 +36,13 @@ def approxLengthOfSegment(segment):
 	
 
 class Beowulferize(FilterWithDialog):
-	
 	# Definitions of IBOutlets
-	
-	# The NSView object from the User Interface. Keep this here!
 	dialog = objc.IBOutlet()
-	
-	# Text field in dialog
 	maxShakeField = objc.IBOutlet()
 	shouldAddPointsField = objc.IBOutlet()
 	thresholdLengthField = objc.IBOutlet()
 	
+	@objc.python_method
 	def settings(self):
 		self.menuName = Glyphs.localize({
 			'en': u'Beowulferize',
@@ -65,19 +63,19 @@ class Beowulferize(FilterWithDialog):
 		self.loadNib('IBdialog', __file__)
 	
 	# On dialog show
+	@objc.python_method
 	def start(self):
-		
 		# Set default value
 		Glyphs.registerDefault('com.mekkablue.beowulferize.shake', 15.0)
-		if Glyphs.defaults['com.mekkablue.beowulferize.shake'] == "GlyphsToolHand":
+		if Glyphs.defaults['com.mekkablue.beowulferize.shake'] == "GlyphsToolHand": # circumvent a bug in Glyphs 2.5
 			Glyphs.defaults['com.mekkablue.beowulferize.shake'] = None
 			
 		Glyphs.registerDefault('com.mekkablue.beowulferize.thresholdLength', 100.0)
-		if Glyphs.defaults['com.mekkablue.beowulferize.thresholdLength'] == "GlyphsToolHand":
+		if Glyphs.defaults['com.mekkablue.beowulferize.thresholdLength'] == "GlyphsToolHand": # circumvent a bug in Glyphs 2.5
 			Glyphs.defaults['com.mekkablue.beowulferize.thresholdLength'] = None
 			
 		Glyphs.registerDefault('com.mekkablue.beowulferize.shouldAddPoints', True)
-		if Glyphs.defaults['com.mekkablue.beowulferize.shouldAddPoints'] == "GlyphsToolHand":
+		if Glyphs.defaults['com.mekkablue.beowulferize.shouldAddPoints'] == "GlyphsToolHand": # circumvent a bug in Glyphs 2.5
 			Glyphs.defaults['com.mekkablue.beowulferize.shouldAddPoints'] = None
 		
 		# Set value of text field
@@ -160,11 +158,11 @@ class Beowulferize(FilterWithDialog):
 		# shake nodes:
 		for thisPath in thisLayer.paths:
 			for thisNode in thisPath.nodes:
-				thisNode.x +=  (-shake + 2 * shake * random.random())
-				thisNode.y +=  (-shake + 2 * shake * random.random())
+				thisNode.x +=  (-shake + 2 * shake * random())
+				thisNode.y +=  (-shake + 2 * shake * random())
 			thisPath.checkConnections()
 		
-	
+	@objc.python_method
 	def generateCustomParameter(self):
 		if Glyphs.defaults['com.mekkablue.beowulferize.shouldAddPoints']:
 			return "%s; shake:%s; thresholdLength:%s;" % (
@@ -178,6 +176,7 @@ class Beowulferize(FilterWithDialog):
 				Glyphs.defaults['com.mekkablue.beowulferize.shake'],
 			)
 	
+	@objc.python_method
 	def __file__(self):
 		"""Please leave this method unchanged"""
 		return __file__
