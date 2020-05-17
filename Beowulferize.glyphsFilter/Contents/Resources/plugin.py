@@ -21,7 +21,6 @@ from random import random
 from GlyphsApp import *
 from GlyphsApp.plugins import *
 
-@objc.python_method
 def approxLengthOfSegment(segment):
 	if len(segment) == 2:
 		p0,p1 = [NSPoint(p.x, p.y) for p in segment]
