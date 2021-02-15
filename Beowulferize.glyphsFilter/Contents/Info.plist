@@ -16,15 +16,19 @@
 	<string>2.0.4</string>
 	<key>CFBundleVersion</key>
 	<string>11</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright, Rainer Erich Scheichelbauer, 2018</string>
-	<key>NSPrincipalClass</key>
-	<string>Beowulferize</string>
 	<key>UpdateFeedURL</key>
 	<string>https://raw.githubusercontent.com/mekkablue/Beowulferize/master/Beowulferize.glyphsFilter/Contents/Info.plist</string>
 	<key>productPageURL</key>
 	<string>https://github.com/mekkablue/Beowulferize</string>
 	<key>productReleaseNotes</key>
 	<string>update binary files for Glyphs3</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright, Rainer Erich Scheichelbauer, 2018</string>
+	<key>NSPrincipalClass</key>
+	<string>Beowulferize</string>
+	<key>PyMainFileNames</key>
+	<array>
+		<string>plugin.py</string>
+	</array>
 </dict>
 </plist>
