@@ -47,7 +47,7 @@ class Beowulferize(FilterWithDialog):
 			'en': u'Beowulferize',
 			'de': u'Beowulferisieren',
 			'fr': u'Beowulfeur',
-			'es': u'Beowulferisador',
+			'es': u'Beowulferizador',
 		})
 		
 		# Word on Run Button (default: Apply)

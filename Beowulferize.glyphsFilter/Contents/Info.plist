@@ -13,15 +13,15 @@
 	<key>CFBundleName</key>
 	<string>Beowulferize</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.5</string>
+	<string>2.0.6</string>
 	<key>CFBundleVersion</key>
-	<string>13</string>
+	<string>14</string>
 	<key>UpdateFeedURL</key>
 	<string>https://raw.githubusercontent.com/mekkablue/Beowulferize/master/Beowulferize.glyphsFilter/Contents/Info.plist</string>
 	<key>productPageURL</key>
 	<string>https://github.com/mekkablue/Beowulferize</string>
 	<key>productReleaseNotes</key>
-	<string>update binary files for Glyphs3</string>
+	<string>Better Spanish translation (thx Juanjo)</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright, Rainer Erich Scheichelbauer, 2018</string>
 	<key>NSPrincipalClass</key>
